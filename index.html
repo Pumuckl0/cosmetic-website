@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kosmetikstudio – Start</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a class="brand" href="./index.html">Kosmetikstudio</a>
+        <ul>
+          <li><a href="./leistungen.html">Leistungen</a></li>
+          <li><a href="./termin.html">Termin buchen</a></li>
+          <li><a href="./ueber-mich.html">Über mich</a></li>
+          <li><a href="./kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Wohlfühl-Momente für deine Haut.</h1>
+        <p>
+          Individuelle Kosmetikbehandlungen in entspannter Atmosphäre.
+          Hier steht ein kurzer Text über Studio, Stil und Spezialisierung.
+        </p>
+        <div>
+          <a class="btn" href="./termin.html">Termin buchen</a>
+          <a class="btn" href="./leistungen.html">Leistungen ansehen</a>
+        </div>
+      </section>
+
+      <section class="grid" aria-label="Highlights">
+        <div class="card">
+          <h2>Gesichtsbehandlung</h2>
+          <p>Reinigung, Pflege und Glow – abgestimmt auf deinen Hauttyp.</p>
+        </div>
+        <div class="card">
+          <h2>Augenbrauen & Wimpern</h2>
+          <p>Formen, färben, liften – natürlich, sauber, typgerecht.</p>
+        </div>
+        <div class="card">
+          <h2>Maniküre</h2>
+          <p>Gepflegte Hände – klassisch oder mit dezentem Finish.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>
+        © <span id="year"></span> Kosmetikstudio ·
+        <a href="./impressum.html">Impressum</a> ·
+        <a href="./datenschutz.html">Datenschutz</a>
+      </small>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
