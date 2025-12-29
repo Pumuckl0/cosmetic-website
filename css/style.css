@@ -326,6 +326,10 @@ small a { color: inherit; }
   gap: 14px;
 }
 
+.italic {
+  font-style: italic;
+}
+
 /* Media Query: “ab 820px und kleiner” -> Alles darin gilt nur, wenn der Screen 820px oder kleiner ist. */
 @media (max-width: 820px) {
 
