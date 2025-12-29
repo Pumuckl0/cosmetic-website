@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kosmetikstudio – Datenschutz</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a class="brand" href="./index.html">Kosmetikstudio</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          ☰
+        </button>
+
+        <ul data-nav-list>
+          <li><a href="./leistungen.html">Leistungen</a></li>
+          <li><a href="./termin.html">Termin buchen</a></li>
+          <li><a href="./ueber-mich.html">Über mich</a></li>
+          <li><a href="./kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section>
+        <h1 class="page-title">Datenschutzerklärung</h1>
+      </section>
+
+      <section class="mt-22">
+        <div class="card stack">
+
+          <h2>1. Datenschutz auf einen Blick</h2>
+          <p>
+            Der Schutz deiner persönlichen Daten ist mir wichtig. Diese Website erhebt und verarbeitet
+            personenbezogene Daten nur im technisch notwendigen Umfang.
+          </p>
+
+          <h2>2. Verantwortliche Stelle</h2>
+          <p>
+            Vorname Nachname<br />
+            Musterstraße 12<br />
+            12345 Musterstadt<br />
+            E-Mail: info@kosmetikstudio.de
+          </p>
+
+          <h2>3. Hosting</h2>
+          <p>
+            Diese Website wird bei einem externen Hosting-Anbieter betrieben.
+            Beim Aufruf der Website werden durch den Hosting-Anbieter automatisch Informationen
+            (z. B. IP-Adresse, Browsertyp, Uhrzeit) in sogenannten Server-Logfiles gespeichert.
+          </p>
+          <p class="muted">
+            Diese Daten sind technisch erforderlich, um die Website korrekt darzustellen,
+            und werden nicht zur Identifikation deiner Person verwendet.
+          </p>
+
+          <h2>4. Kontaktaufnahme</h2>
+          <p>
+            Wenn du per E-Mail oder Telefon Kontakt aufnimmst, werden deine Angaben zur Bearbeitung
+            der Anfrage gespeichert. Diese Daten werden nicht ohne deine Einwilligung weitergegeben.
+          </p>
+
+          <h2>5. Terminbuchung</h2>
+          <p>
+            Für die Online-Terminbuchung wird ein externer Dienst genutzt (z. B. TIMIFY).
+            Bei der Nutzung des Buchungssystems gelten die Datenschutzbestimmungen
+            des jeweiligen Anbieters.
+          </p>
+
+          <h2>6. Deine Rechte</h2>
+          <ul class="list">
+            <li>Auskunft über deine gespeicherten Daten</li>
+            <li>Berichtigung oder Löschung</li>
+            <li>Einschränkung der Verarbeitung</li>
+            <li>Widerspruch gegen die Verarbeitung</li>
+          </ul>
+
+          <p class="muted">
+            Hierzu sowie zu weiteren Fragen zum Thema Datenschutz kannst du dich jederzeit
+            unter der im Impressum angegebenen Adresse an mich wenden.
+          </p>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>
+        © <span id="year"></span> Kosmetikstudio ·
+        <a href="./impressum.html">Impressum</a> ·
+        <a href="./datenschutz.html">Datenschutz</a>
+      </small>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

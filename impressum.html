@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kosmetikstudio – Impressum</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a class="brand" href="./index.html">Kosmetikstudio</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          ☰
+        </button>
+
+        <ul data-nav-list>
+          <li><a href="./leistungen.html">Leistungen</a></li>
+          <li><a href="./termin.html">Termin buchen</a></li>
+          <li><a href="./ueber-mich.html">Über mich</a></li>
+          <li><a href="./kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section>
+        <h1 class="page-title">Impressum</h1>
+      </section>
+
+      <section class="mt-22">
+        <div class="card">
+          <h2>Angaben gemäß § 5 TMG</h2>
+
+          <p class="mt-18">
+            <strong>Name des Unternehmens</strong><br />
+            Vorname Nachname<br />
+            Musterstraße 12<br />
+            12345 Musterstadt
+          </p>
+
+          <p class="mt-18">
+            <strong>Kontakt</strong><br />
+            Telefon: +49 123 4567890<br />
+            E-Mail: info@kosmetikstudio.de
+          </p>
+
+          <p class="mt-18">
+            <strong>Umsatzsteuer-ID</strong><br />
+            Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br />
+            DE123456789
+          </p>
+
+          <p class="mt-18 muted">
+            Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:<br />
+            Vorname Nachname, Adresse wie oben
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>
+        © <span id="year"></span> Kosmetikstudio ·
+        <a href="./impressum.html">Impressum</a> ·
+        <a href="./datenschutz.html">Datenschutz</a>
+      </small>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
