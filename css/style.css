@@ -192,6 +192,51 @@ small a { color: inherit; }
   outline-offset: 2px;
 }
 
+/* große Überschrift (responsive)
+- font-size: clamp(min, ideal, max)
+*/
+.page-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  line-height: 1.15;
+}
+
+/* Einleitungstext / Teaser
+- margin-top: Abstand zur Überschrift darüber
+- ch = Breite des Zeichens -> 60–75 Zeichen pro Zeile
+*/
+.lead {
+  margin-top: 10px;
+  max-width: 70ch;
+  color: #333;
+}
+
+/* Utility-Klassen für Abstände
+- Eine Klasse = genau eine Aufgabe
+- mt = margin-top
+*/
+.mt-18 { margin-top: 18px; }
+.mt-22 { margin-top: 22px; }
+
+/* Absatz-Abstände in Cards
+- Jeder Absatz (p) innerhalb einer .card bekommt Abstand nach oben
+*/
+.card p { margin-top: 8px; }
+
+/* Zusatzinfos in Cards
+- .meta = z.B. Datum, Kategorie, Autor, Preis, etc.
+- margin-top trennt Inhalt von Metadaten
+*/
+.card .meta {
+  margin-top: 10px;
+}
+
+/* Gewichtung in Meta-Infos
+- strong wird halbfett, nicht ganz fett (700)
+*/
+.card .meta strong {
+  font-weight: 600;
+}
+
 /* Media Query: “ab 820px und kleiner” -> Alles darin gilt nur, wenn der Screen 820px oder kleiner ist. */
 @media (max-width: 820px) {
 
