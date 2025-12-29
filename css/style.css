@@ -128,15 +128,19 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
 */
 .btn {
   display: inline-block;
-  padding: 10px 14px;
+  padding: 10px 16px;
   border-radius: 12px;
-  border: 1px solid #ddd;
-  background: #fff;
+  border: 1px solid #cfd8e3;
+  background: #e9eef4;      
+  color: #2f3a46;          
   text-decoration: none;
-  color: inherit;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
-.btn:hover { background: #f3f3f3; }
+.btn:hover {
+  background: #dde5ee;
+}
 
 /* Cards Grid: Desktop 3 Spalten, Handy 1 Spalte
 - repeat(3, 1fr) = 3 gleich breite Spalten
@@ -175,6 +179,18 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
 */
 .card .meta strong {
   font-weight: 600;
+}
+
+/*für zwei "Spalten" z.B. Text/Preis in einer Card*/
+.card-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; /* wirkt bei Text/Preis oft schöner als center */
+  gap: 12px;             /* falls es eng wird */
+}
+
+.price {
+  font-weight: bold;
 }
 
 /* Footer
