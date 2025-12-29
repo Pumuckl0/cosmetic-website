@@ -1,6 +1,17 @@
 /* Basic Reset */
+/*
+- Mit * werden alle Elemente angesprochen
+- Mit margin: 0 und padding: 0 werden die Browser Standardabstände entfernt
+- border-box verhindert, dass die Elemente größer werden als gedacht
+*/
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Body: globale Typografie & Farben
+- font-family: nimmt die System-Schrift (Mac/Windows/Android), wirkt modern und lädt schnell.
+- line-height: 1.5: macht Text gut lesbar (mehr Zeilenabstand).
+- color: Standard-Textfarbe (fast schwarz).
+- background: weißer Hintergrund.
+*/
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.5;
@@ -8,24 +19,50 @@ body {
   background: #fff;
 }
 
+/* Container: “zentrierte Seite” mit Max-Breite
+- width: nimm die kleinere von: 1000px (maximal so breit) und 92vw (92% der Viewport-Breite, also Bildschirmbreite)
+  Damit wird erreicht, dass es auf großen Bildschirmen angenehm und nicht zu breit ist.
+  Aber auf kleinen Bildschirmen der ganze Bildschirm ausgenutzt wird.
+- margin: 0 auto; = oben/unten 0, links/rechts automatisch → zentriert.
+*/
 .container {
   width: min(1000px, 92vw);
   margin: 0 auto;
 }
 
+/* Header: Linie und Hintergrund
+- border-bottom: feine Trennlinie zum Content.
+- background: bleibt weiß (gut, falls später body eine andere Farbe bekommt).
+*/
 header {
   border-bottom: 1px solid #eee;
   background: #fff;
 }
 
+/* Navigation (.nav): Flexbox für horizontales Layout
+- display: flex macht aus .nav einen Flex-Container.
+  Seine direkten Kinder (z.B. Logo + Menü + Button) werden flexibel angeordnet.
+- align-items: center; vertikal auf einer Linie (bei horizontaler Flex-Ausrichtung).
+- justify-content: space-between; → erster Block links, letzter rechts, Abstand dazwischen.
+- gap: 16px; → Abstand zwischen Flex-Items (sehr praktisch).
+- flex-wrap: wrap; → wenn nicht genug Platz ist (Handy), darf es in die nächste Zeile umbrechen.
+
+Diese Zeile ist der Grund, warum der Header auf kleineren Screens nicht “kaputtgeht”.
+*/
 .nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 16px 0;
   gap: 16px;
+  flex-wrap: wrap; /* wichtig für Mobile-Menü */
 }
 
+/* Brand-Link: wie ein Logo wirken lassen
+- text-decoration: none; entfernt Link-Unterstreichung.
+- color: inherit; übernimmt die Farbe vom Parent (body/nav) → kein Standard-Linkblau.
+- font-weight + letter-spacing → “Logo-Feeling”.
+*/
 .brand {
   font-weight: 700;
   letter-spacing: 0.2px;
@@ -33,6 +70,11 @@ header {
   color: inherit;
 }
 
+/* Menü-Liste: UL als horizontale Reihe (Flex)
+- list-style: none; entfernt Bulletpoints.
+- display: flex macht die Listeneinträge (li) zu einer Reihe.
+- flex-wrap: wrap erlaubt Umbruch, wenn wenig Platz.
+*/
 .nav ul {
   list-style: none;
   display: flex;
@@ -40,6 +82,10 @@ header {
   flex-wrap: wrap;
 }
 
+/* Nav-Links: “Button-ish” Hitbox
+- Padding macht die Klickfläche größer (Usability!).
+- border-radius macht abgerundet.
+*/
 .nav a {
   text-decoration: none;
   color: inherit;
@@ -47,10 +93,18 @@ header {
   border-radius: 10px;
 }
 
+/*  :hover gibt Feedback beim Drüberfahren.*/
 .nav a:hover { background: #f3f3f3; }
 
+/*  
+- Einfach Luft oben/unten.
+*/
 main { padding: 40px 0; }
 
+/* 
+- display: grid + gap: super einfache Art, Elemente untereinander mit Abstand anzuordnen.
+- Border + Radius + leichtes Hintergrundgrau → “Card/Panel Look”.
+*/
 .hero {
   display: grid;
   gap: 18px;
@@ -60,8 +114,18 @@ main { padding: 40px 0; }
   background: #fafafa;
 }
 
+/* 
+- clamp(min, ideal, max) — wichtiges Responsive-Konzept
+- Minimum: 28px (nie kleiner)
+- Ideal: 4vw (skaliert mit Bildschirmbreite)
+- Maximum: 44px (nie größer)
+So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
+*/
 .hero h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; }
 
+/* 
+- inline-block: Link verhält sich wie Text, aber Padding/Breite/Height funktionieren wie bei einem Block.
+*/
 .btn {
   display: inline-block;
   padding: 10px 14px;
@@ -74,6 +138,10 @@ main { padding: 40px 0; }
 
 .btn:hover { background: #f3f3f3; }
 
+/* Cards Grid: Desktop 3 Spalten, Handy 1 Spalte
+- repeat(3, 1fr) = 3 gleich breite Spalten
+- 1fr = “ein Anteil vom verfügbaren Platz”
+*/
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -81,6 +149,7 @@ main { padding: 40px 0; }
   margin-top: 22px;
 }
 
+/* klassischer “Card”-Style (Rahmen, Radius, Padding, weiß) */
 .card {
   border: 1px solid #eee;
   border-radius: 16px;
@@ -88,6 +157,29 @@ main { padding: 40px 0; }
   background: #fff;
 }
 
+/* Absatz-Abstände in Cards
+- Jeder Absatz (p) innerhalb einer .card bekommt Abstand nach oben
+*/
+.card p { margin-top: 8px; }
+
+/* Zusatzinfos in Cards
+- .meta = z.B. Datum, Kategorie, Autor, Preis, etc.
+- margin-top trennt Inhalt von Metadaten
+*/
+.card .meta {
+  margin-top: 10px;
+}
+
+/* Gewichtung in Meta-Infos
+- strong wird halbfett, nicht ganz fett (700)
+*/
+.card .meta strong {
+  font-weight: 600;
+}
+
+/* Footer
+- Kleiner, grauer, unaufdringlich, Link nicht blau.
+*/
 footer {
   border-top: 1px solid #eee;
   padding: 22px 0;
@@ -97,7 +189,180 @@ footer {
 
 small a { color: inherit; }
 
-/* Responsive */
+/* --- Mobile Nav: Hamburger-Button + Menü ein-/ausblenden --- */
+/* 
+- Standard: unsichtbar. -> Button (am Desktop versteckt)
+*/
+.nav-toggle {
+  display: none; /* am Desktop unsichtbar */
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 12px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* 
+- Wichtig für Tastaturbedienung (Accessibility).
+*/
+.nav-toggle:focus {
+  outline: 2px solid #ddd;
+  outline-offset: 2px;
+}
+
+/* große Überschrift (responsive -> clamp macht Überschrift in einer sinnvollen Größe)
+- font-size: clamp(min, ideal, max)
+*/
+.page-title {
+  font-size: clamp(26px, 3.5vw, 38px);
+  line-height: 1.15;
+}
+
+/* Einleitungstext / Teaser
+- margin-top: Abstand zur Überschrift darüber
+- ch = Breite des Zeichens -> 60–75 Zeichen pro Zeile
+*/
+.lead {
+  margin-top: 10px;
+  max-width: 70ch;
+  color: #333;
+}
+
+/* Utility-Klassen für Abstände
+- Eine Klasse = genau eine Aufgabe
+- mt = margin-top
+*/
+.mt-18 { margin-top: 18px; }
+.mt-22 { margin-top: 22px; }
+.mt-6 { margin-top: 6px; }
+
+.list {
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.list li {
+  margin-bottom: 6px;
+}
+
+/* Dezenter Hilfetext */
+.muted {
+  color: #444;
+}
+
+.booking-placeholder {
+  border: 1px dashed #ddd;
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+}
+
+/* --- Kontakt / Info-Blöcke --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.kv {
+  display: grid;
+  gap: 10px;
+}
+
+.kv dt {
+  font-weight: 600;
+}
+
+.kv dd {
+  margin: 2px 0 0 0;
+  color: #333;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.avatar {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  border: 1px solid #eee;
+  background: #fafafa;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stack {
+  display: grid;
+  gap: 14px;
+}
+
+/* Media Query: “ab 820px und kleiner” -> Alles darin gilt nur, wenn der Screen 820px oder kleiner ist. */
 @media (max-width: 820px) {
+
+  /* 
+  - Grid wird einspaltig
+  */
   .grid { grid-template-columns: 1fr; }
+
+  .nav {
+    align-items: flex-start;
+  }
+
+  /* 
+  - Nav Button wird sichtbar
+  */
+  .nav-toggle {
+    display: inline-block; /* nur am Handy sichtbar */
+  }
+
+  /* Menü wird standardmäßig versteckt
+  - display: none; → Menü ist zu, wenn du die Seite am Handy öffnest.
+  - width: 100% → soll die ganze Breite nehmen.
+  - Flex-basis: 100% → im Flex-Kontext: dieses Element will eine ganze Zeile haben (unter dem Headerbereich).
+  - flex-direction: column → Links untereinander statt nebeneinander.
+  - border-top + padding-top → optische Trennung.
+  */
+  .nav ul {
+    display: none;
+    width: 100%;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+  }
+
+  /* Wenn geöffnet: anzeigen
+  Das ist der Kern: Wenn dein JavaScript beim Klick is-open hinzufügt, wird das Menü sichtbar.
+  */
+  .nav ul.is-open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 10px 12px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
 }

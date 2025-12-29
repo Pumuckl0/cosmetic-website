@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kosmetikstudio – Über mich</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a class="brand" href="./index.html">Kosmetikstudio</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          ☰
+        </button>
+
+        <ul data-nav-list>
+          <li><a href="./leistungen.html">Leistungen</a></li>
+          <li><a href="./termin.html">Termin buchen</a></li>
+          <li><a href="./ueber-mich.html">Über mich</a></li>
+          <li><a href="./kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section>
+        <h1 class="page-title">Über mich</h1>
+        <p class="lead">
+          Ich liebe natürliche Ergebnisse, eine ruhige Atmosphäre und Behandlungen, die wirklich zu dir passen.
+          Hier erfährst du, wie ich arbeite und was dir bei mir wichtig sein darf.
+        </p>
+      </section>
+
+      <section class="about-grid mt-22" aria-label="Profil">
+        <div class="avatar">
+          <!-- Optional: später echtes Foto einfügen:
+               <img src="./images/portrait.jpg" alt="Portrait von [Name]" />
+          -->
+          <p class="muted">Foto / Portrait (Platzhalter)</p>
+        </div>
+
+        <div class="stack">
+          <article class="card">
+            <h2>Hallo, ich bin …</h2>
+            <p class="mt-6">
+              Ich bin ausgebildete Kosmetikerin und helfe dir dabei, dich in deiner Haut wohlzufühlen – ohne
+              übertriebene Versprechen. Mir ist wichtig, dass du dich bei mir sicher, gesehen und gut beraten fühlst.
+            </p>
+            <p class="mt-6">
+              Mein Stil: ruhig, sauber, typgerecht – und immer mit einem Blick darauf, was deiner Haut langfristig gut tut.
+            </p>
+          </article>
+
+          <article class="card">
+            <h2>So läuft ein Termin ab</h2>
+            <ul class="list mt-18">
+              <li>Kurzes Ankommen & Besprechen deiner Wünsche</li>
+              <li>Behandlung (je nach Service) mit passenden Produkten</li>
+              <li>Abschluss & Tipps für zuhause (wenn du möchtest)</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h2>Wofür ich stehe</h2>
+            <ul class="list mt-18">
+              <li>Natürliche Ergebnisse statt “zu viel”</li>
+              <li>Saubere Arbeit & hygienische Standards</li>
+              <li>Transparente Beratung – ohne Druck</li>
+              <li>Entspannte Atmosphäre</li>
+            </ul>
+
+            <div class="mt-18">
+              <a class="btn" href="./termin.html">Termin buchen</a>
+              <a class="btn" href="./leistungen.html">Leistungen ansehen</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="mt-22">
+        <div class="card">
+          <h2>Qualifikation & Erfahrung</h2>
+          <p class="mt-6 muted">
+            (Hier kannst du später kurz Zertifikate, Schwerpunkte, Weiterbildungen oder deine Lieblingsbehandlungen ergänzen.)
+          </p>
+          <ul class="list mt-18">
+            <li>Ausbildung: …</li>
+            <li>Schwerpunkte: Gesichtsbehandlungen, Brauen/Wimpern, Maniküre/Pediküre</li>
+            <li>Weiterbildungen: …</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>
+        © <span id="year"></span> Kosmetikstudio ·
+        <a href="./impressum.html">Impressum</a> ·
+        <a href="./datenschutz.html">Datenschutz</a>
+      </small>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

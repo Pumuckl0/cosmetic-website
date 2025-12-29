@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kosmetikstudio – Leistungen</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a class="brand" href="./index.html">Kosmetikstudio</a>
+
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Menü öffnen"
+            aria-expanded="false"
+            data-nav-toggle
+        >
+            ☰
+        </button>
+
+        <ul data-nav-list>
+          <li><a href="./leistungen.html">Leistungen</a></li>
+          <li><a href="./termin.html">Termin buchen</a></li>
+          <li><a href="./ueber-mich.html">Über mich</a></li>
+          <li><a href="./kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section>
+        <h1 class="page-title">Leistungen & Preise</h1>
+        <p class="lead">
+            Hier findest du eine Übersicht aller Behandlungen. Die genauen Inhalte stimmen wir individuell ab –
+            je nach Hauttyp und Wunsch.
+        </p>
+      </section>
+
+
+      <section class="grid mt-18" aria-label="Leistungen">
+        <!-- Karte 1 -->
+        <article class="card">
+          <h2>Basis-Gesichtsbehandlung</h2>
+          <p>
+            Reinigung, Peeling, Ausreinigung (bei Bedarf), Maske & Abschlusspflege.
+          </p>
+          <p style="margin-top: 10px;"><strong>Dauer:</strong> 60 Min</p>
+          <p><strong>Preis:</strong> 69 €</p>
+        </article>
+
+        <!-- Karte 2 -->
+        <article class="card">
+          <h2>Intensiv-Behandlung</h2>
+          <p>
+            Extra Pflege-Boost inkl. Wirkstoffampulle und Massage (wenn passend).
+          </p>
+          <p style="margin-top: 10px;"><strong>Dauer:</strong> 75 Min</p>
+          <p><strong>Preis:</strong> 89 €</p>
+        </article>
+
+        <!-- Karte 3 -->
+        <article class="card">
+          <h2>Augenbrauen & Wimpern</h2>
+          <p>
+            Formen, färben oder Wimpernlifting – natürlich und typgerecht.
+          </p>
+          <p class="meta"><strong>Dauer:</strong> 30-60 Min</p>
+          <p><strong>Preis:</strong> ab 18 €</p>
+        </article>
+
+        <!-- Karte 4 -->
+        <article class="card">
+          <h2>Maniküre</h2>
+          <p>
+            Nagelpflege, Handbad, Cuticles, Feilen & Pflegefinish.
+          </p>
+          <p class="meta"><strong>Dauer:</strong> 45 Min</p>
+          <p><strong>Preis:</strong> 35 €</p>
+        </article>
+
+        <!-- Karte 5 -->
+        <article class="card">
+          <h2>Pediküre</h2>
+          <p>
+            Fußbad, Hornhautpflege, Nagelpflege & Abschlusspflege.
+          </p>
+          <p class="meta"><strong>Dauer:</strong> 60 Min</p>
+          <p><strong>Preis:</strong> 45 €</p>
+        </article>
+
+        <!-- Karte 6 -->
+        <article class="card">
+          <h2>Beratung</h2>
+          <p>
+            Hautanalyse und Produktempfehlung passend zu deiner Routine.
+          </p>
+          <p class="meta"><strong>Dauer:</strong> 20 Min</p>
+          <p><strong>Preis:</strong> 15 €</p>
+        </article>
+      </section>
+
+      <section class="mt-22">
+        <a class="btn" href="./termin.html">Termin buchen</a>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>
+        © <span id="year"></span> Kosmetikstudio ·
+        <a href="./impressum.html">Impressum</a> ·
+        <a href="./datenschutz.html">Datenschutz</a>
+      </small>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
