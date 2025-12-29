@@ -157,6 +157,26 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
   background: #fff;
 }
 
+/* Absatz-Abstände in Cards
+- Jeder Absatz (p) innerhalb einer .card bekommt Abstand nach oben
+*/
+.card p { margin-top: 8px; }
+
+/* Zusatzinfos in Cards
+- .meta = z.B. Datum, Kategorie, Autor, Preis, etc.
+- margin-top trennt Inhalt von Metadaten
+*/
+.card .meta {
+  margin-top: 10px;
+}
+
+/* Gewichtung in Meta-Infos
+- strong wird halbfett, nicht ganz fett (700)
+*/
+.card .meta strong {
+  font-weight: 600;
+}
+
 /* Footer
 - Kleiner, grauer, unaufdringlich, Link nicht blau.
 */
@@ -192,7 +212,7 @@ small a { color: inherit; }
   outline-offset: 2px;
 }
 
-/* große Überschrift (responsive)
+/* große Überschrift (responsive -> clamp macht Überschrift in einer sinnvollen Größe)
 - font-size: clamp(min, ideal, max)
 */
 .page-title {
@@ -216,25 +236,78 @@ small a { color: inherit; }
 */
 .mt-18 { margin-top: 18px; }
 .mt-22 { margin-top: 22px; }
+.mt-6 { margin-top: 6px; }
 
-/* Absatz-Abstände in Cards
-- Jeder Absatz (p) innerhalb einer .card bekommt Abstand nach oben
-*/
-.card p { margin-top: 8px; }
-
-/* Zusatzinfos in Cards
-- .meta = z.B. Datum, Kategorie, Autor, Preis, etc.
-- margin-top trennt Inhalt von Metadaten
-*/
-.card .meta {
-  margin-top: 10px;
+.list {
+  padding-left: 18px;
+  list-style: disc;
 }
 
-/* Gewichtung in Meta-Infos
-- strong wird halbfett, nicht ganz fett (700)
-*/
-.card .meta strong {
+.list li {
+  margin-bottom: 6px;
+}
+
+/* Dezenter Hilfetext */
+.muted {
+  color: #444;
+}
+
+.booking-placeholder {
+  border: 1px dashed #ddd;
+  border-radius: 16px;
+  padding: 16px;
+  background: #fff;
+}
+
+/* --- Kontakt / Info-Blöcke --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.kv {
+  display: grid;
+  gap: 10px;
+}
+
+.kv dt {
   font-weight: 600;
+}
+
+.kv dd {
+  margin: 2px 0 0 0;
+  color: #333;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.avatar {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  border: 1px solid #eee;
+  background: #fafafa;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.stack {
+  display: grid;
+  gap: 14px;
 }
 
 /* Media Query: “ab 820px und kleiner” -> Alles darin gilt nur, wenn der Screen 820px oder kleiner ist. */
@@ -283,5 +356,13 @@ small a { color: inherit; }
 
   .nav a {
     padding: 10px 12px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
   }
 }

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kosmetikstudio – Termin buchen</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a class="brand" href="./index.html">Kosmetikstudio</a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          data-nav-toggle
+        >
+          ☰
+        </button>
+
+        <ul data-nav-list>
+          <li><a href="./leistungen.html">Leistungen</a></li>
+          <li><a href="./termin.html">Termin buchen</a></li>
+          <li><a href="./ueber-mich.html">Über mich</a></li>
+          <li><a href="./kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <section>
+        <h1 class="page-title">Termin buchen</h1>
+        <p class="lead">
+          Wähle eine Behandlung und einen freien Termin. Falls du unsicher bist, welche Behandlung passt,
+          buche gern eine kurze Beratung – wir klären alles vor Ort.
+        </p>
+      </section>
+
+      <!-- OPTION A: Button (externer Link) -->
+      <section class="mt-22">
+        <h2>Online buchen</h2>
+        <p class="lead mt-6">
+          Du kannst deinen Termin online auswählen. Bestätigung und Erinnerungen erhältst du per E-Mail.
+        </p>
+
+        <!-- Später ersetzen wir # durch den echten TIMIFY-Link -->
+        <div class="mt-18">
+          <a class="btn" href="#" target="_blank" rel="noopener noreferrer">
+            Jetzt Termin online buchen
+          </a>
+        </div>
+      </section>
+
+      <!-- OPTION B: Widget-Einbettung (vorbereitet, aber noch deaktiviert) -->
+      <section class="mt-22">
+        <h2>Oder direkt hier buchen</h2>
+        <p class="lead mt-6">
+          Alternativ können wir das Buchungs-Widget direkt auf dieser Seite einbetten.
+        </p>
+
+        <div class="booking-placeholder mt-18" aria-label="Buchungsbereich">
+          <p><strong>Platzhalter:</strong> Hier kommt später das TIMIFY-Widget rein.</p>
+          <p class="mt-6 muted">
+            Sobald der Account angelegt ist, fügen wir den Embed-Code ein.
+          </p>
+        </div>
+      </section>
+
+      <section class="mt-22">
+        <h2>Hinweise</h2>
+        <div class="card mt-18">
+          <ul class="list">
+            <li>Bitte 5 Minuten vor dem Termin da sein.</li>
+            <li>Absagen möglichst 24 Stunden vorher.</li>
+            <li>Wenn du krank bist: bitte verschieben – danke!</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>
+        © <span id="year"></span> Kosmetikstudio ·
+        <a href="./impressum.html">Impressum</a> ·
+        <a href="./datenschutz.html">Datenschutz</a>
+      </small>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
