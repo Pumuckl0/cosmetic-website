@@ -85,10 +85,24 @@ Diese Zeile ist der Grund, warum der Header auf kleineren Screens nicht “kaput
 - font-weight + letter-spacing → “Logo-Feeling”.
 */
 .brand {
-  font-weight: 700;
-  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;          /* Abstand zwischen Logo & Text */
   text-decoration: none;
   color: inherit;
+}
+
+.brand span {
+  font-weight: 700;   /* fett */
+  font-style: italic; /* kursiv */
+}
+
+.brand-logo {
+  height: 32px;
+  width: 32px;          /* wichtig: gleiche Breite & Höhe */
+  object-fit: cover;   /* schneidet sauber zu */
+  border-radius: 50%;  /* macht es rund */
+  display: block;
 }
 
 /* Menü-Liste: UL als horizontale Reihe (Flex)
