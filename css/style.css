@@ -188,6 +188,10 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
   margin-top: 22px;
 }
 
+.grid-title {
+  grid-column: 1 / -1; /* spannt über alle Spalten */
+}
+
 /* Leistung Grid: Desktop 1 Spalten, Handy 1 Spalte
 - repeat(3, 1fr) = 3 gleich breite Spalten
 - 1fr = “ein Anteil vom verfügbaren Platz” */
@@ -293,9 +297,15 @@ small a { color: inherit; }
 */
 .lead {
   margin-top: 10px;
-  max-width: 70ch;
   color: #333;
 }
+
+/* Zusatzinfo / Teaser */
+.hint {
+  font-size: 0.9em;
+  color: #666;
+}
+
 
 /* Utility-Klassen für Abstände
 - Eine Klasse = genau eine Aufgabe
@@ -566,3 +576,13 @@ section[id] {
 }
 
 html { scroll-behavior: smooth; }
+
+/* reserves space for the scrollbar -> ensures same width of remaining space for each side*/
+html {
+  scrollbar-gutter: stable;
+}
+
+/*space between two lines */
+section p + p {
+  margin-top: 8px;
+}
