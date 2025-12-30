@@ -22,3 +22,12 @@ if (toggleBtn && navList) {
   });
 }
 
+// Scroll-Down Button
+document.querySelectorAll("[data-scroll-to]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const target = btn.getAttribute("data-scroll-to");
+    const el = document.querySelector(target);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+});
+

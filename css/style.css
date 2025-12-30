@@ -19,6 +19,18 @@ body {
   background: #fff;
 }
 
+/* Startseite: Hero soll direkt am Header kleben */
+.home main {
+  padding: 0;
+}
+
+/* Damit der Inhalt NACH dem Hero wieder normalen Abstand hat */
+.home main > .container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+
 /* Container: “zentrierte Seite” mit Max-Breite
 - width: nimm die kleinere von: 1000px (maximal so breit) und 92vw (92% der Viewport-Breite, also Bildschirmbreite)
   Damit wird erreicht, dass es auf großen Bildschirmen angenehm und nicht zu breit ist.
@@ -26,7 +38,7 @@ body {
 - margin: 0 auto; = oben/unten 0, links/rechts automatisch → zentriert.
 */
 .container {
-  width: min(1000px, 92vw);
+  width: min(1300px, 92vw);
   margin: 0 auto;
 }
 
@@ -36,7 +48,16 @@ body {
 */
 header {
   border-bottom: 1px solid #eee;
+  height: var(--header-height);
   background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* variable for header hight*/
+:root {
+  --header-height: 72px; /* ggf. anpassen */
 }
 
 /* Navigation (.nav): Flexbox für horizontales Layout
@@ -64,10 +85,24 @@ Diese Zeile ist der Grund, warum der Header auf kleineren Screens nicht “kaput
 - font-weight + letter-spacing → “Logo-Feeling”.
 */
 .brand {
-  font-weight: 700;
-  letter-spacing: 0.2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;          /* Abstand zwischen Logo & Text */
   text-decoration: none;
   color: inherit;
+}
+
+.brand span {
+  font-weight: 700;   /* fett */
+  font-style: italic; /* kursiv */
+}
+
+.brand-logo {
+  height: 32px;
+  width: 32px;          /* wichtig: gleiche Breite & Höhe */
+  object-fit: cover;   /* schneidet sauber zu */
+  border-radius: 50%;  /* macht es rund */
+  display: block;
 }
 
 /* Menü-Liste: UL als horizontale Reihe (Flex)
@@ -153,6 +188,18 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
   margin-top: 22px;
 }
 
+/* Leistung Grid: Desktop 1 Spalten, Handy 1 Spalte
+- repeat(3, 1fr) = 3 gleich breite Spalten
+- 1fr = “ein Anteil vom verfügbaren Platz” */
+
+.leistung-grid {
+  display: grid;
+  justify-content: center;   /* ⬅️ DAS zentriert die Spalte */
+  gap: 14px;
+  margin-top: 22px;
+}
+
+
 /* klassischer “Card”-Style (Rahmen, Radius, Padding, weiß) */
 .card {
   border: 1px solid #eee;
@@ -187,6 +234,10 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
   justify-content: space-between;
   align-items: baseline; /* wirkt bei Text/Preis oft schöner als center */
   gap: 12px;             /* falls es eng wird */
+}
+
+.leistung-full .card {
+  width: min(900px, 92vw); 
 }
 
 .price {
@@ -337,9 +388,11 @@ small a { color: inherit; }
   - Grid wird einspaltig
   */
   .grid { grid-template-columns: 1fr; }
-
+ 
   .nav {
     align-items: flex-start;
+    background: #fff;
+    padding-bottom: 0;
   }
 
   /* 
@@ -358,14 +411,21 @@ small a { color: inherit; }
   */
   .nav ul {
     display: none;
-    width: 100%;
-    flex-basis: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100vw;
+    background: #ffffff;
+
+    padding: 1rem 0;
+    margin: 0;
+    list-style: none;
+
     flex-direction: column;
     gap: 6px;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #eee;
   }
+
 
   /* Wenn geöffnet: anzeigen
   Das ist der Kern: Wenn dein JavaScript beim Klick is-open hinzufügt, wird das Menü sichtbar.
@@ -386,3 +446,123 @@ small a { color: inherit; }
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Fullscreen Hero --- */
+.hero-full {
+  min-height: calc(100svh - var(--header-height));
+  display: grid;
+  align-items: end;
+  position: relative;
+
+  /* WICHTIG: Fullscreen = keine Deko */
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+
+  background:
+    linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15)),
+    url("../images/logo.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-full .hero-inner {
+  padding: 26px;
+  color: #fff;
+  display: grid;
+  gap: 10px;
+  max-width: 70ch;
+}
+
+.hero-full h1 {
+  font-size: clamp(30px, 5vw, 56px);
+  line-height: 1.05;
+}
+
+.hero-full p {
+  opacity: 0.95;
+}
+
+.hero-full .hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* Handy: Fokus z.B. etwas nach oben/rechts/links verschieben */
+@media (max-width: 600px){
+  .hero-full{
+    background-size: 130% auto;   /* zoomt rein */
+    background-position: center;
+  }
+}
+
+.leistung-full {
+  min-height: calc(100svh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 14px;                 /* normaler Abstand zwischen Cards */
+  padding-block: clamp(16px, 6vh, 64px); /* Resthöhe als Top/Bottom-Padding */
+  padding-inline: 0;
+}
+
+/* Buttons auf dunklem Bild */
+.btn--ghost {
+  background: transparent;
+  border-color: rgba(255,255,255,0.65);
+  color: #fff;
+}
+.btn--ghost:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+/* Scroll Arrow */
+.scroll-down {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  background: none; /* kein Kreis mehr */
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  outline: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.scroll-down .triangle {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 14px solid #fff; /* weißes Dreieck nach unten */
+}
+
+.scroll-down:hover {
+  background: rgba(0,0,0,0.25);
+}
+
+.scroll-down span {
+  font-size: 22px;
+  line-height: 1;
+  transform: translateY(1px);
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 12px);
+}
+
+/* Abschnitt-Überschrift etwas schöner */
+.section-title {
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.2;
+}
+
+html { scroll-behavior: smooth; }

@@ -7,11 +7,14 @@
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 
-<body>
+<body class="home">
   <header>
     <div class="container">
       <nav class="nav" aria-label="Hauptnavigation">
-        <a class="brand" href="./index.html">Carina Marie Cosmetics</a>
+        <a class="brand" href="./index.html">
+          <img src="./images/logo.jpeg" alt="Carina Marie Cosmetics Logo" class="brand-logo">
+          <span>Carina Marie Cosmetics</span>
+        </a>
 
         <button
           class="nav-toggle"
@@ -34,19 +37,27 @@
   </header>
 
   <main>
-    <div class="container">
-      <section class="hero">
+      <section class="hero-full" aria-label="Intro">
+        <!--
+       <div class="hero-inner">
         <h1>Ein Blick, der bleibt.</h1>
         <p>
           Wimpern- und Augenbrauenbehandlungen für einen gepflegten, natürlichen Look.
         </p>
+       </div>
+
         <div>
           <a class="btn" href="./termin.html">Termin buchen</a>
           <a class="btn" href="./leistungen.html">Leistungen und Preise ansehen</a>
         </div>
+         -->
+        
+        <button class="scroll-down" type="button" aria-label="Zum nächsten Abschnitt" data-scroll-to="#leistungen-preview">
+          <span class="triangle"></span>
+        </button>
       </section>
 
-      <section class="grid" aria-label="Highlights">
+      <section id="leistungen-preview" class="leistung-grid leistung-full" aria-label="Leistungen Vorschau">
         <div class="card">
           <h2>Wimpernverlängerung</h2>
           <p class = "italic">Blickfang - ganz ohne Mascara.</p>
