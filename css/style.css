@@ -1,3 +1,25 @@
+:root{
+  --header-height: 72px;
+
+  /* Dark Theme Colors */
+  --bg: #0b0d10;
+  --bg-2: #0f1216;
+  --surface: rgba(255,255,255,0.06);
+  --surface-2: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.10);
+
+  --text: rgba(255,255,255,0.92);
+  --text-muted: rgba(255,255,255,0.70);
+
+  /* Accent (gold-ish, passt zu "luxury") */
+  --accent: #c9a46c;
+  --accent-2: rgba(201,164,108,0.18);
+
+  /* Radius / Shadow */
+  --radius: 18px;
+  --shadow: 0 14px 40px rgba(0,0,0,0.45);
+}
+
 /* Basic Reset */
 /*
 - Mit * werden alle Elemente angesprochen
@@ -15,8 +37,10 @@
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   line-height: 1.5;
-  color: #111;
-  background: #fff;
+  color: var(--text);
+  background: radial-gradient(1200px 700px at 30% 0%, rgba(255,255,255,0.06), transparent 60%),
+              radial-gradient(1000px 600px at 85% 15%, rgba(201,164,108,0.06), transparent 55%),
+              var(--bg);
 }
 
 /* Startseite: Hero soll direkt am Header kleben */
@@ -46,18 +70,17 @@ body {
 - border-bottom: feine Trennlinie zum Content.
 - background: bleibt weiß (gut, falls später body eine andere Farbe bekommt).
 */
-header {
-  border-bottom: 1px solid #eee;
+header{
   height: var(--header-height);
-  background: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-}
 
-/* variable for header hight*/
-:root {
-  --header-height: 72px; /* ggf. anpassen */
+  background: rgba(11,13,16,0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid var(--border);
 }
 
 /* Navigation (.nav): Flexbox für horizontales Layout
@@ -92,9 +115,10 @@ Diese Zeile ist der Grund, warum der Header auf kleineren Screens nicht “kaput
   color: inherit;
 }
 
-.brand span {
-  font-weight: 700;   /* fett */
-  font-style: italic; /* kursiv */
+.brand span{
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.2px;
 }
 
 .brand-logo {
@@ -121,32 +145,45 @@ Diese Zeile ist der Grund, warum der Header auf kleineren Screens nicht “kaput
 - Padding macht die Klickfläche größer (Usability!).
 - border-radius macht abgerundet.
 */
-.nav a {
+.nav a{
   text-decoration: none;
-  color: inherit;
+  color: var(--text);
   padding: 8px 10px;
   border-radius: 10px;
 }
 
 /*  :hover gibt Feedback beim Drüberfahren.*/
-.nav a:hover { background: #f3f3f3; }
+.nav a:hover{
+  background: var(--surface-2);
+}
 
 /*  
 - Einfach Luft oben/unten.
 */
 main { padding: 40px 0; }
 
+main a{
+  color: rgba(201,164,108,0.95);
+  text-decoration: none;
+}
+main a:hover{
+  text-decoration: underline;
+  text-decoration-color: rgba(201,164,108,0.7);
+}
+
+
 /* 
 - display: grid + gap: super einfache Art, Elemente untereinander mit Abstand anzuordnen.
 - Border + Radius + leichtes Hintergrundgrau → “Card/Panel Look”.
 */
-.hero {
+.hero{
   display: grid;
   gap: 18px;
   padding: 28px;
-  border: 1px solid #eee;
-  border-radius: 18px;
-  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 /* 
@@ -161,20 +198,22 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
 /* 
 - inline-block: Link verhält sich wie Text, aber Padding/Breite/Height funktionieren wie bei einem Block.
 */
-.btn {
+.btn{
   display: inline-block;
   padding: 10px 16px;
   border-radius: 12px;
-  border: 1px solid #cfd8e3;
-  background: #e9eef4;      
-  color: #2f3a46;          
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
   text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s ease, transform 0.1s ease;
+  font-weight: 600;
+  transition: transform 0.12s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
-.btn:hover {
-  background: #dde5ee;
+.btn:hover{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.18);
+  transform: translateY(-1px);
 }
 
 /* Cards Grid: Desktop 3 Spalten, Handy 1 Spalte
@@ -205,17 +244,18 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
 
 
 /* klassischer “Card”-Style (Rahmen, Radius, Padding, weiß) */
-.card {
-  border: 1px solid #eee;
-  border-radius: 16px;
+.card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   padding: 16px;
-  background: #fff;
+  background: var(--surface);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
 }
 
 /* Absatz-Abstände in Cards
 - Jeder Absatz (p) innerhalb einer .card bekommt Abstand nach oben
 */
-.card p { margin-top: 8px; }
+.card p{ margin-top: 8px; color: var(--text-muted); }
 
 /* Zusatzinfos in Cards
 - .meta = z.B. Datum, Kategorie, Autor, Preis, etc.
@@ -244,21 +284,30 @@ So wird die Überschrift auf Handy nicht riesig, auf Desktop aber schön groß.
   width: min(900px, 92vw); 
 }
 
-.price {
-  font-weight: bold;
-}
+.price{ color: var(--text); }
 
 /* Footer
 - Kleiner, grauer, unaufdringlich, Link nicht blau.
 */
-footer {
-  border-top: 1px solid #eee;
+footer{
+  border-top: 1px solid var(--border);
   padding: 22px 0;
-  color: #444;
+  color: var(--text-muted);
   font-size: 14px;
+  background: transparent;
 }
 
-small a { color: inherit; }
+small a{
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+small a:hover{
+  opacity: 1;
+  text-decoration: underline;
+  text-decoration-color: rgba(201,164,108,0.7);
+}
 
 /* --- Mobile Nav: Hamburger-Button + Menü ein-/ausblenden --- */
 /* 
@@ -295,16 +344,10 @@ small a { color: inherit; }
 - margin-top: Abstand zur Überschrift darüber
 - ch = Breite des Zeichens -> 60–75 Zeichen pro Zeile
 */
-.lead {
-  margin-top: 10px;
-  color: #333;
-}
+.lead{ margin-top: 10px; color: var(--text-muted); }
 
 /* Zusatzinfo / Teaser */
-.hint {
-  font-size: 0.9em;
-  color: #666;
-}
+.hint{ font-size: 0.9em; color: var(--text-muted); opacity: 0.9; }
 
 .hint-offset {
   margin-top: 1.5rem;   /* Abstand nach oben */
@@ -339,9 +382,7 @@ small a { color: inherit; }
 }
 
 /* Dezenter Hilfetext */
-.muted {
-  color: #444;
-}
+.muted{ color: var(--text-muted); }
 
 .booking-placeholder {
   border: 1px dashed #ddd;
@@ -369,7 +410,7 @@ small a { color: inherit; }
 
 .kv dd {
   margin: 2px 0 0 0;
-  color: #333;
+  color: var(--text-muted);
 }
 
 .about-grid {
@@ -413,17 +454,22 @@ small a { color: inherit; }
   */
   .grid { grid-template-columns: 1fr; }
  
-  .nav {
+  .nav{
     align-items: flex-start;
-    background: #fff;
+    background: transparent;
     padding-bottom: 0;
   }
 
   /* 
   - Nav Button wird sichtbar
   */
-  .nav-toggle {
-    display: inline-block; /* nur am Handy sichtbar */
+  .nav-toggle{
+    display: inline-flex; /* make hamburger visible on small screens */
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
   }
 
   /* Menü wird standardmäßig versteckt
@@ -433,21 +479,15 @@ small a { color: inherit; }
   - flex-direction: column → Links untereinander statt nebeneinander.
   - border-top + padding-top → optische Trennung.
   */
-  .nav ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-
-    width: 100vw;
-    background: #ffffff;
-
-    padding: 1rem 0;
-    margin: 0;
-    list-style: none;
-
+  .nav ul{
+    display: none; /* hidden by default on mobile */
+    width: 100%;
+    flex-basis: 100%;
     flex-direction: column;
-    gap: 6px;
+    background: rgba(11,13,16,0.95);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
 
@@ -456,6 +496,18 @@ small a { color: inherit; }
   */
   .nav ul.is-open {
     display: flex;
+    margin-top: 0;
+    padding-top: 12px; /* space for first item */
+    padding-bottom: 16px; /* space below last item for more background */
+    border-top: none;
+
+    /* full-bleed, flush under header */
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    width: 100vw;
+    z-index: 900; /* below header (header z-index:1000) */
   }
 
   .nav a {
@@ -541,6 +593,19 @@ small a { color: inherit; }
 }
 .btn--ghost:hover {
   background: rgba(255,255,255,0.12);
+}
+
+.btn:active{
+  transform: translateY(0);
+}
+
+/* "Primary" Variante optional, wenn du willst */
+.btn--primary{
+  background: var(--accent-2);
+  border-color: rgba(201,164,108,0.45);
+}
+.btn--primary:hover{
+  background: rgba(201,164,108,0.28);
 }
 
 /* Scroll Arrow */
