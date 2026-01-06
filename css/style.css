@@ -306,6 +306,20 @@ small a { color: inherit; }
   color: #666;
 }
 
+.hint-offset {
+  margin-top: 1.5rem;   /* Abstand nach oben */
+  margin-bottom: 0.1rem; /* Abstand zum Text verkleinern */
+}
+
+.closing-note {
+  margin: 3rem 0 2rem;
+  text-align: center;
+}
+
+.closing-note p {
+  margin: 0;
+}
+
 
 /* Utility-Klassen für Abstände
 - Eine Klasse = genau eine Aufgabe
